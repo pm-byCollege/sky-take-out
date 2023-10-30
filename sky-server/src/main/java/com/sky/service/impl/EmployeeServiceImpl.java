@@ -102,4 +102,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new PageResult(page.getTotal(), page.getResult());
     }
 
+    /*
+     * 开启 关闭员工
+     * @param status id
+     * */
+    public void startOrStop(Integer status, Long id) {
+        Employee employee = Employee.builder()
+                .status(status)
+                .id(id)
+                .build();
+
+        employeeMapper.updateStatus(employee);
+    }
+
 }
