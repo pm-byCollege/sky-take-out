@@ -96,6 +96,7 @@ public class EmployeeController<pageResult> {
     }
 
     @PostMapping("/status/{status}")
+    @ApiOperation("修改员工状态")
     public Result startOrStop(@PathVariable Integer status, Long id){
         log.info("修改员工状态：{} {}", status, id);
         employeeService.startOrStop(status,id);
