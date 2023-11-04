@@ -26,10 +26,8 @@ public class AutoFillAspect {
     /*
     * 切入点
     * */
-    @Pointcut("execution(* com.sky.service.impl.*.*(..)) && @annotation(com.sky.annotation.AutoFill)") // 所有类 所有方法 所有参数类型
-    public void autoFillPointCut(){
-
-    }
+    @Pointcut("execution(* com.sky.mapper.*.*(..)) && @annotation(com.sky.annotation.AutoFill)") // 所有类 所有方法 所有参数类型
+    public void autoFillPointCut(){}
 
     /*
     * 通知
