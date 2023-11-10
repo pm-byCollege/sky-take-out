@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController("adminDishController")
 @RequestMapping("/admin/dish")
 @Slf4j
 @Api(tags = "菜品管理")
@@ -48,7 +48,7 @@ public class DishController {
 
     @DeleteMapping
     @ApiOperation("删除菜品")
-    public Result delDish(@RequestParam List<Integer> ids) {
+    public Result delDish(@RequestParam List<Long> ids) {
         log.info("删除菜品 {}", ids);
         dishService.delDish(ids);
         return Result.success();
@@ -56,7 +56,7 @@ public class DishController {
 
     @GetMapping("/{id}")
     @ApiOperation("根据id查询菜品")
-    public Result<DishVO> getById(@PathVariable Integer id) {
+    public Result<DishVO> getById(@PathVariable Long id) {
         log.info("根据id查询菜品 {}", id);
         DishVO dishVO = dishService.getByIdWithFlavor(id);
         return Result.success(dishVO);

@@ -36,13 +36,18 @@ public interface DishMapper {
     void delById(Integer id);
 
     @Select("select * from dish where id = #{id}")
-    Dish getById(Integer id);
+    Dish getById(Long id);
 
     /*
     * 批量删除
     * */
-    void delByIds(List<Integer> ids);
+    void delByIds(List<Long> ids);
 
     @AutoFill(value = OperationType.UPDATE)
     void update(Dish dish);
+
+    /*
+    * 条件查询菜品数据
+    * */
+    List<Dish> list(Dish dish);
 }
